@@ -1,31 +1,33 @@
 @charset "utf-8";
 @import "compass/reset";
-//sollte diese folgende Zeile zu einer Fehlermeldung führen - kommentieren Sie die folgende und die obere Zeile aus und kommentieren Sie die nachfolgende ein
 @import "compass/css3";
-
 
 
 @import "base"; /* inkludiert die Datei _base.scss */
 @import "button"; /* inkludiert die Datei _button.scss */
 
+@mixin transition($value){
+    -moz-transition: $value;
+    -o-transition: $value;
+    -webkit-transition: $value;
+}
 
 .btn {
-    /* TODO */
-
+    @include transition(padding 300ms ease-in 0ms);
     &.ease-in {
-        /* TODO */
+        @include transition(padding 400ms ease-in 100ms);
     }
 
     &.ease-out {
-        /* TODO */
+        @include transition(padding 500ms ease-in 300ms);
     }
 
     &.ease-in-out {
-        /* TODO */
+        @include transition(padding 600ms ease-in-out 500ms);
     }
 
     &.green {
-        /* TODO */
+        @include transition(all 5000ms linear 0ms);
     }
 
     &.animation {
@@ -38,9 +40,47 @@
     }
 }
 
+@keyframes myanimation {
+    0% {
+        top: 0;
+        right: auto;
+        bottom: auto;
+        left: 0;
+    }
+
+    25% {
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: auto;
+    }
+
+    50% {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: auto;
+    }
+
+    75% {
+        top: auto;
+        right: auto;
+        bottom: 0;
+        left: 0;
+    }
+
+    100% {
+        top: 0;
+        right: auto;
+        bottom: auto;
+        left: 0;
+    }
+}
+
 body:hover .animation {
-    animation-name:myanimation2;
     animation-duration:5s;
+    animation-name: myanimation;
+
 }
 
 

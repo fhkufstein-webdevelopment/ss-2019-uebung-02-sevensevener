@@ -1,0 +1,18 @@
+
+@mixin margin($value){
+  margin: $value;
+}
+
+@mixin breakpoint($width){
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin mobileInvisible($width) {
+  display: none;
+
+  @include breakpoint($width) {
+    display:block;
+  }
+}
